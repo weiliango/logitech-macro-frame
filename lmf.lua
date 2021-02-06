@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------------------------------------
---                                        使用者配置设置                                           --
+--                                        Ã¤Â½Â¿Ã§â€Â¨Ã¨â‚¬â€¦Ã©â€¦ÂÃ§Â½Â®Ã¨Â®Â¾Ã§Â½Â®                                           --
 --                                    User config settings                                        --
 ----------------------------------------------------------------------------------------------------
 
@@ -37,7 +37,7 @@ userConfig = {
 --                                                                                                --
 --               Welcome to this script. If you have any questions, please visit:                 --
 --                        https://github.com/kiccer/logitech-macro-frame                          --
---                    Please click [★ Star] to support my project, thank you.                    --
+--                    Please click [Ã¢Ëœâ€¦ Star] to support my project, thank you.                    --
 --                                                                                                --
 --||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||--
 
@@ -57,9 +57,9 @@ end
 
 lmf = {
 	debug = true,
-	monitor = {}, -- 监听器列表
-	_timers = {}, -- 定时器函数列表
-	_for_protect_time = 20000, -- lmf.for 方法的循环保护，超过此毫秒数时间将强制结束循环，防止死循环卡死。
+	monitor = {}, -- Ã§â€ºâ€˜Ã¥ÂÂ¬Ã¥â„¢Â¨Ã¥Ë†â€”Ã¨Â¡Â¨
+	_timers = {}, -- Ã¥Â®Å¡Ã¦â€”Â¶Ã¥â„¢Â¨Ã¥â€¡Â½Ã¦â€¢Â°Ã¥Ë†â€”Ã¨Â¡Â¨
+	_for_protect_time = 20000, -- lmf.for Ã¦â€“Â¹Ã¦Â³â€¢Ã§Å¡â€žÃ¥Â¾ÂªÃ§Å½Â¯Ã¤Â¿ÂÃ¦Å Â¤Ã¯Â¼Å’Ã¨Â¶â€¦Ã¨Â¿â€¡Ã¦Â­Â¤Ã¦Â¯Â«Ã§Â§â€™Ã¦â€¢Â°Ã¦â€”Â¶Ã©â€”Â´Ã¥Â°â€ Ã¥Â¼ÂºÃ¥Ë†Â¶Ã§Â»â€œÃ¦ÂÅ¸Ã¥Â¾ÂªÃ§Å½Â¯Ã¯Â¼Å’Ã©ËœÂ²Ã¦Â­Â¢Ã¦Â­Â»Ã¥Â¾ÂªÃ§Å½Â¯Ã¥ÂÂ¡Ã¦Â­Â»Ã£â‚¬â€š
 }
 
 function lmf.isPressed (n)
@@ -92,7 +92,7 @@ function lmf.addSpeed (n)
 	end
 end
 
--- 重命名 API，整合个别 API 功能
+-- Ã©â€¡ÂÃ¥â€˜Â½Ã¥ÂÂ APIÃ¯Â¼Å’Ã¦â€¢Â´Ã¥ÂË†Ã¤Â¸ÂªÃ¥Ë†Â« API Ã¥Å Å¸Ã¨Æ’Â½
 getM = GetMKeyState
 setM = SetMKeyState
 sleep = Sleep
@@ -122,7 +122,7 @@ isLock = IsKeyLockOn
 isPressed = lmf.isPressed
 setDpi = lmf.setDpi
 
--- 重命名 OnEvent 的 event 参数
+-- Ã©â€¡ÂÃ¥â€˜Â½Ã¥ÂÂ OnEvent Ã§Å¡â€ž event Ã¥Ââ€šÃ¦â€¢Â°
 lmf.events = {
 	-- load event
 	{ "PROFILE_ACTIVATED", "load" },
@@ -138,7 +138,7 @@ lmf.events = {
 	{ "M_RELEASED", "mkeyup" },
 }
 
--- 监听动作
+-- Ã§â€ºâ€˜Ã¥ÂÂ¬Ã¥Å Â¨Ã¤Â½Å“
 function lmf.on (k, f)
 	local index = nil
 	local list = table.map(lmf.events, function (n, i)
@@ -163,12 +163,12 @@ function lmf.on (k, f)
 	} or nil
 end
 
--- 取消监听
+-- Ã¥Ââ€“Ã¦Â¶Ë†Ã§â€ºâ€˜Ã¥ÂÂ¬
 function lmf.off (n)
 	lmf.monitor[n.event][n.id] = false
 end
 
--- 触发监听事件
+-- Ã¨Â§Â¦Ã¥Ââ€˜Ã§â€ºâ€˜Ã¥ÂÂ¬Ã¤Âºâ€¹Ã¤Â»Â¶
 function lmf.emit (k, d)
 	if lmf.monitor[k] and #lmf.monitor[k] then
 		table.forEach(lmf.monitor[k], function (n, i)
@@ -177,7 +177,7 @@ function lmf.emit (k, d)
 	end
 end
 
--- lmf 提供的 loop 循环方法
+-- lmf Ã¦ÂÂÃ¤Â¾â€ºÃ§Å¡â€ž loop Ã¥Â¾ÂªÃ§Å½Â¯Ã¦â€“Â¹Ã¦Â³â€¢
 function lmf.loop (func, timestamp)
 	local startTime = getTime()
 	local lastTime = getTime()
@@ -341,9 +341,9 @@ function table.createFill (n, v)
 end
 
 --[[
-	* 打印 table
-	* @param  {any} val     传入值
-	* @return {str}         格式化后的文本
+	* Ã¦â€°â€œÃ¥ÂÂ° table
+	* @param  {any} val     Ã¤Â¼ Ã¥â€¦Â¥Ã¥â‚¬Â¼
+	* @return {str}         Ã¦ Â¼Ã¥Â¼ÂÃ¥Å’â€“Ã¥ÂÅ½Ã§Å¡â€žÃ¦â€“â€¡Ã¦Å“Â¬
 ]]
 function table.print (val)
 
@@ -351,7 +351,7 @@ function table.print (val)
 		_indent = _indent or 1
 		keyType = keyType or "string"
 		local res = ""
-		local indentStr = "     " -- 缩进空格
+		local indentStr = "     " -- Ã§Â¼Â©Ã¨Â¿â€ºÃ§Â©ÂºÃ¦ Â¼
 		local indent = string.rep(indentStr, _indent)
 		local end_indent = string.rep(indentStr, _indent - 1)
 		local putline = function (...)
@@ -403,13 +403,13 @@ function table.print (val)
 
 			putline("}, ")
 		elseif type(val) == "string" then
-			val = string.gsub(val, "\a", "\\a") -- 响铃(BEL)
-			val = string.gsub(val, "\b", "\\b") -- 退格(BS),将当前位置移到前一列
-			val = string.gsub(val, "\f", "\\f") -- 换页(FF),将当前位置移到下页开头
-			val = string.gsub(val, "\n", "\\n") -- 换行(LF),将当前位置移到下一行开头
-			val = string.gsub(val, "\r", "\\r") -- 回车(CR),将当前位置移到本行开头
-			val = string.gsub(val, "\t", "\\t") -- 水平指标(HT),(调用下一个TAB位置)
-			val = string.gsub(val, "\v", "\\v") -- 垂直指标(VT)
+			val = string.gsub(val, "\a", "\\a") -- Ã¥â€œÂÃ©â€œÆ’(BEL)
+			val = string.gsub(val, "\b", "\\b") -- Ã©â‚¬â‚¬Ã¦ Â¼(BS),Ã¥Â°â€ Ã¥Â½â€œÃ¥â€°ÂÃ¤Â½ÂÃ§Â½Â®Ã§Â§Â»Ã¥Ë†Â°Ã¥â€°ÂÃ¤Â¸â‚¬Ã¥Ë†â€”
+			val = string.gsub(val, "\f", "\\f") -- Ã¦ÂÂ¢Ã©Â¡Âµ(FF),Ã¥Â°â€ Ã¥Â½â€œÃ¥â€°ÂÃ¤Â½ÂÃ§Â½Â®Ã§Â§Â»Ã¥Ë†Â°Ã¤Â¸â€¹Ã©Â¡ÂµÃ¥Â¼â‚¬Ã¥Â¤Â´
+			val = string.gsub(val, "\n", "\\n") -- Ã¦ÂÂ¢Ã¨Â¡Å’(LF),Ã¥Â°â€ Ã¥Â½â€œÃ¥â€°ÂÃ¤Â½ÂÃ§Â½Â®Ã§Â§Â»Ã¥Ë†Â°Ã¤Â¸â€¹Ã¤Â¸â‚¬Ã¨Â¡Å’Ã¥Â¼â‚¬Ã¥Â¤Â´
+			val = string.gsub(val, "\r", "\\r") -- Ã¥â€ºÅ¾Ã¨Â½Â¦(CR),Ã¥Â°â€ Ã¥Â½â€œÃ¥â€°ÂÃ¤Â½ÂÃ§Â½Â®Ã§Â§Â»Ã¥Ë†Â°Ã¦Å“Â¬Ã¨Â¡Å’Ã¥Â¼â‚¬Ã¥Â¤Â´
+			val = string.gsub(val, "\t", "\\t") -- Ã¦Â°Â´Ã¥Â¹Â³Ã¦Å’â€¡Ã¦ â€¡(HT),(Ã¨Â°Æ’Ã§â€Â¨Ã¤Â¸â€¹Ã¤Â¸â‚¬Ã¤Â¸ÂªTABÃ¤Â½ÂÃ§Â½Â®)
+			val = string.gsub(val, "\v", "\\v") -- Ã¥Å¾â€šÃ§â€ºÂ´Ã¦Å’â€¡Ã¦ â€¡(VT)
 			putline("\"", val, "\", ")
 		elseif type(val) == "boolean" then
 			putline(val and "true, " or "false, ")
@@ -459,14 +459,14 @@ function lmf._emit (ename, arg, family)
 	if arg == 2 then arg = 3 elseif arg == 3 then arg = 2 end
 	local list = { "lalt", "lctrl", "lshift", "ralt", "rctrl", "rshift" }
 	local res = {
-		event = ename, -- 触发的事件
-		g = arg, -- 触发事件的 G 键，包括鼠标、键盘、耳机等
-		family = family ~= "" and family or "other", -- 触发事件的设备 (鼠标或其他)
-		pressed = {}, -- 哪些 G 键是按住的状态 (仅支持判断 g1、g2、g3、g4、g5 五个鼠标 G 键)
-		modifier = {}, -- 哪些修饰键是按住的状态 (lalt、lctrl、lshift、ralt、rctrl、rshift)
-		capslock = isLock("capslock"), -- 大写锁定键是否开启
-		numlock = isLock("numlock"), -- 小键盘锁定是否开启
-		scrolllock = isLock("scrolllock"), -- 滚动锁定是否开启
+		event = ename, -- Ã¨Â§Â¦Ã¥Ââ€˜Ã§Å¡â€žÃ¤Âºâ€¹Ã¤Â»Â¶
+		g = arg, -- Ã¨Â§Â¦Ã¥Ââ€˜Ã¤Âºâ€¹Ã¤Â»Â¶Ã§Å¡â€ž G Ã©â€Â®Ã¯Â¼Å’Ã¥Å’â€¦Ã¦â€¹Â¬Ã©Â¼ Ã¦ â€¡Ã£â‚¬ÂÃ©â€Â®Ã§â€ºËœÃ£â‚¬ÂÃ¨â‚¬Â³Ã¦Å“ÂºÃ§Â­â€°
+		family = family ~= "" and family or "other", -- Ã¨Â§Â¦Ã¥Ââ€˜Ã¤Âºâ€¹Ã¤Â»Â¶Ã§Å¡â€žÃ¨Â®Â¾Ã¥Â¤â€¡ (Ã©Â¼ Ã¦ â€¡Ã¦Ë†â€“Ã¥â€¦Â¶Ã¤Â»â€“)
+		pressed = {}, -- Ã¥â€œÂªÃ¤Âºâ€º G Ã©â€Â®Ã¦ËœÂ¯Ã¦Å’â€°Ã¤Â½ÂÃ§Å¡â€žÃ§Å Â¶Ã¦â‚¬Â (Ã¤Â»â€¦Ã¦â€Â¯Ã¦Å’ÂÃ¥Ë†Â¤Ã¦â€“Â­ g1Ã£â‚¬Âg2Ã£â‚¬Âg3Ã£â‚¬Âg4Ã£â‚¬Âg5 Ã¤Âºâ€Ã¤Â¸ÂªÃ©Â¼ Ã¦ â€¡ G Ã©â€Â®)
+		modifier = {}, -- Ã¥â€œÂªÃ¤Âºâ€ºÃ¤Â¿Â®Ã©Â¥Â°Ã©â€Â®Ã¦ËœÂ¯Ã¦Å’â€°Ã¤Â½ÂÃ§Å¡â€žÃ§Å Â¶Ã¦â‚¬Â (laltÃ£â‚¬ÂlctrlÃ£â‚¬ÂlshiftÃ£â‚¬ÂraltÃ£â‚¬ÂrctrlÃ£â‚¬Ârshift)
+		capslock = isLock("capslock"), -- Ã¥Â¤Â§Ã¥â€ â„¢Ã©â€ÂÃ¥Â®Å¡Ã©â€Â®Ã¦ËœÂ¯Ã¥ÂÂ¦Ã¥Â¼â‚¬Ã¥ÂÂ¯
+		numlock = isLock("numlock"), -- Ã¥Â°ÂÃ©â€Â®Ã§â€ºËœÃ©â€ÂÃ¥Â®Å¡Ã¦ËœÂ¯Ã¥ÂÂ¦Ã¥Â¼â‚¬Ã¥ÂÂ¯
+		scrolllock = isLock("scrolllock"), -- Ã¦Â»Å¡Ã¥Å Â¨Ã©â€ÂÃ¥Â®Å¡Ã¦ËœÂ¯Ã¥ÂÂ¦Ã¥Â¼â‚¬Ã¥ÂÂ¯
 	}
 
 	for i = 1, 5 do
@@ -486,180 +486,161 @@ end
 
 --||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||--
 --                                                                                                --
---                                     从这里开始写你的代码                                         --
+--                                     Ã¤Â»Å½Ã¨Â¿â„¢Ã©â€¡Å’Ã¥Â¼â‚¬Ã¥Â§â€¹Ã¥â€ â„¢Ã¤Â½ Ã§Å¡â€žÃ¤Â»Â£Ã§ Â                                         --
 --                                Start writing your code here.                                   --
 --                                                                                                --
 --||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||--
 
 EnablePrimaryMouseButtonEvents(true)
 -- Execute when the script is loaded
-lmf.on("load", function ()
-	console.log("let's rocking!")
---	lmf.loop(function ()
---		sleep(30000)
---		keyTap(0x34) -- .
---		for i = 0, 10 do
---			keyTap(0x1e) -- a
---			moveToThis (32767, 32767)
---			keyTap(0x18) -- o
---			keyTap(0x16) -- u
---		end
---		keyTap(0x1a) -- [
---		keyTap(0x1a) -- [
---		a = a + 1
---		return a < 5
---	end, 10000)
-end)
 
-lmf.on('unload', function ()
-	console.clear()
-end)
+local sleepTime = 10
+local iteration = 200
+lmf._for_protect_time = 60 * 60 * 24 * 1000 -- 24 hours
 
--- 按住左键连点效果实现范例 (开启大写生效)
- local G1 = false
+function injectLarvae()
+	keyDown(0x1d) -- control Ã¨Â¿â€ºÃ¨Â¡Å’Ã§Â¼â€“Ã©ËœÅ¸
+	sleep(sleepTime)
+	keyDown(0x0c) -- -
+	sleep(sleepTime)
+	keyUp(0x0c)
+	sleep(sleepTime)
+	keyUp(0x1d) -- Ã§Â¼â€“Ã©ËœÅ¸Ã§Â»â€œÃ¦ÂÅ¸
+	--Ã¤Â¿ÂÃ¥Â­ËœÃ¨Â§â€ Ã¨Â§â€™
+	keyDown(0x2a) -- shift Ã¨Â¿â€ºÃ¨Â¡Å’Ã§Â¼â€“Ã¥Â±Â
+	sleep(sleepTime)
+	keyDown(0x1c) -- Enter
+	sleep(sleepTime)
+	keyUp(0x1c)
+	sleep(sleepTime)
+	keyUp(0x2a) -- Ã§Â¼â€“Ã¥Â±ÂÃ§Â»â€œÃ¦ÂÅ¸
+	--corner caseÃ¯Â¼Å¡Ã¦Â²Â¡Ã¦Å“â€°Ã©â‚¬â€°Ã¤Â¸Â­Ã¤Â»Â»Ã¤Â½â€¢Ã¥Ââ€¢Ã¤Â½ÂÃ¯Â¼Å’Ã¦Â¯â€Ã¥Â¦â€šÃ¥Å“Â¨Ã§Å“â€¹Ã©Â£Å½Ã¦â„¢Â¯Ã¯Â¼Å’Ã¨Â¿â„¢Ã§Â§ÂÃ¦Æ’â€¦Ã¥â€ ÂµÃ¤Â¸â€¹
+	--Ã§Â¼â€“Ã©ËœÅ¸Ã¥Å“Â¨Ã§Â§Â»Ã¥Å Â¨
+	--Ã¦â€°â‚¬Ã¤Â»Â¥Ã¥Âºâ€Ã¨Â¯Â¥Ã¥â€¦Ë†Ã¦ÂÂ¢Ã¥Â¤ÂÃ¨Â§â€ Ã¨Â§â€™Ã¯Â¼Å’Ã§â€žÂ¶Ã¥ÂÅ½Ã¥â€ ÂÃ¥ÂÅ’Ã¥â€¡Â»Ã§Â¼â€“Ã©ËœÅ¸Ã¯Â¼Å’Ã¥Â¦â€šÃ¦Å¾Å“Ã¦Â²Â¡Ã¦Å“â€°Ã§Â¼â€“Ã©ËœÅ¸Ã§Å¡â€žÃ¥Å’â€“Ã¥â€ºÅ¾Ã¥â€ºÅ¾Ã¥Ë†Â°Ã¥Å½Å¸Ã¤Â½Â
+	--Ã§Â¼â€“Ã©ËœÅ¸Ã§Â§Â»Ã¥Å Â¨Ã¤Âºâ€ Ã¤Â¹Å¸Ã¨Æ’Â½Ã¦ÂÂ¢Ã¥Â¤ÂÃ¦Å“â‚¬Ã¥ÂÅ½Ã§Å¡â€žÃ¤Â½ÂÃ§Â½Â®
 
- lmf.on("mousedown", function (e)
- 	-- console.log(e)
- 	if e.g == 7 and e.capslock then
- 		G1 = true
- 		setM(1)
- 	end
- end)
---
- lmf.on("mkeydown", function (e)
- 	if G1 and e.capslock then
- 		setM(1)
- 		mouseTap(1)
- 	end
- end)
---
+	--	--Ã¦Â¯ÂÃ¦Â¬Â¡Ã¦â€°Â§Ã¨Â¡Å’Ã§Å¡â€žÃ¦â€”Â¶Ã¥â‚¬â„¢Ã¥Âºâ€Ã¨Â¯Â¥Ã¦Â¸â€¦Ã§Â©ÂºÃ¥Â¥Â³Ã§Å½â€¹Ã§Â¼â€“Ã©ËœÅ¸Ã¯Â¼Å’Ã¥â€º Ã¤Â¸ÂºÃ¤Â¹â€¹Ã¥â€°ÂÃ¥ÂÂ¯Ã¨Æ’Â½Ã¤Â¼Å¡Ã©â‚¬â€°Ã¤Â¸Â­Ã¥â€ Å“Ã¦Â°â€˜Ã¥â€™Å’Ã¨â„¢Â«Ã¥ÂÂµ
+	--		sleep(sleepTime)
+	--		keyDown(0x34) -- .
+	--		sleep(sleepTime)
+	--		keyDown(0x1d) -- control Ã¨Â¿â€ºÃ¨Â¡Å’Ã§Â¼â€“Ã©ËœÅ¸
+	--		sleep(sleepTime)
+	--		keyDown(0x0b) -- 0
+	--		sleep(sleepTime)
+	--		keyUp(0x0b)
+	--		sleep(sleepTime)
+	--		keyUp(0x1d) -- Ã§Â¼â€“Ã©ËœÅ¸Ã§Â»â€œÃ¦ÂÅ¸
+	--	--Ã¨Â¿ËœÃ¥Â¾â€”Ã¦Â¸â€¦Ã§Â©ÂºÃ¥Å¸ÂºÃ¥Å“Â°Ã§Â¼â€“Ã©ËœÅ¸Ã¯Â¼Å’Ã¤Â¹Å¸Ã¥Â®Â¹Ã¦Ëœâ€œÃ¥â€¡ÂºÃ©â€”Â®Ã©Â¢Ëœ
+	--		sleep(sleepTime)
+	--		keyDown(0x1c) -- Enter
+	--		sleep(sleepTime)
+	--		keyDown(0x1d) -- control Ã¨Â¿â€ºÃ¨Â¡Å’Ã§Â¼â€“Ã©ËœÅ¸
+	--		sleep(sleepTime)
+	--		keyDown(0x0b) --
+	--		sleep(sleepTime)
+	--		keyUp(0x0b)
+	--		sleep(sleepTime)
+	--		keyUp(0x1d) -- Ã§Â¼â€“Ã©ËœÅ¸Ã§Â»â€œÃ¦ÂÅ¸
 
- local sleepTime = 10
- lmf.on("mouseup", function (e)
- 	if e.g == 7 then
---		moveToThis (29500, 55000) -- point of first unit
--- 		moveToThis (30200, 38000) -- point of left bottom corner of base
--- 		moveToThis (35294, 20534) -- point of left bottom corner of base
+	local j = 4;
+	if IsKeyLockOn("scrolllock") then
+		j = 4
+	else
+		j = 10
+	end
 
-	--保存编队
-		keyDown(0x1d) -- control 进行编队
+	for i = 0, j do
+		keyTap(0x1e) -- a Ã¥Ë†â€¡Ã¥Â±Â
 		sleep(sleepTime)
-		keyDown(0x0c) -- -
+		--			keyTap(0x34) -- .
+		--			sleep(50)
+		--Ã¦Â¡â€ Ã©â‚¬â€°
+		moveToThis (30200, 38000)
 		sleep(sleepTime)
-		keyUp(0x0c)
+		mouseDown(1)
 		sleep(sleepTime)
-		keyUp(0x1d) -- 编队结束
-	--保存视角
-		keyDown(0x2a) -- shift 进行编屏
+		moveToThis (35294, 20534)
 		sleep(sleepTime)
-		keyDown(0x1c) -- Enter
+		mouseUp(1)
+		--Ã¦Â¡â€ Ã©â‚¬â€°Ã§Â»â€œÃ¦ÂÅ¸,Ã¥Â¦â€šÃ¦Å¾Å“Ã¦Â²Â¡Ã¦Å“â€°Ã¥Â¥Â³Ã§Å½â€¹Ã¯Â¼Å’Ã¤Â¼Å¡Ã©â‚¬â€°Ã¤Â¸Â­Ã¥Å¸ÂºÃ¥Å“Â°Ã¦Å“Â¬Ã¨ÂºÂ«
+		--			sleep(sleepTime)
+		--			moveToThis (29500, 55000) --Ã©â‚¬â€°Ã¤Â¸Â­Ã©ËœÅ¸Ã¤Â¼ÂÃ¤Â¸Â­Ã§Â¬Â¬Ã¤Â¸â‚¬Ã¤Â¸ÂªÃ¥Ââ€¢Ã¤Â½Â
+		--			sleep(sleepTime)
+		--			mouseTap(1)
+		--			sleep(sleepTime)
+		--			keyDown(0x1d) -- control Ã¨Â¿â€ºÃ¨Â¡Å’Ã§Â¼â€“Ã©ËœÅ¸
+		--			sleep(sleepTime)
+		--			keyDown(0x34) -- .
+		--			sleep(sleepTime)
+		--			keyUp(0x34)
+		--			sleep(sleepTime)
+		--			keyUp(0x1d) -- Ã§Â¼â€“Ã©ËœÅ¸Ã§Â»â€œÃ¦ÂÅ¸
 		sleep(sleepTime)
-		keyUp(0x1c)
+		moveToThis (32767, 32767) --Ã©Â¼ Ã¦ â€¡Ã§Â§Â»Ã¥Å Â¨Ã¥Ë†Â°Ã¥Â±ÂÃ¥Â¹â€¢Ã¤Â¸Â­Ã¥Â¤Â®
 		sleep(sleepTime)
-		keyUp(0x2a) -- 编屏结束
-	--corner case：没有选中任何单位，比如在看风景，这种情况下
-	--编队在移动
-	--所以应该先恢复视角，然后再双击编队，如果没有编队的化回回到原位
-	--编队移动了也能恢复最后的位置
-
-	--每次执行的时候应该清空女王编队，因为之前可能会选中农民和虫卵
+		keyTap(0x25) -- K Ã¦Â³Â¨Ã¥ÂÂµ
 		sleep(sleepTime)
-		keyDown(0x34) -- .
+		mouseTap(1)
+		-- Ã¤Â»Â¥Ã¤Â¸Å Ã¦ÂµÂÃ§Â¨â€¹Ã¥Â¦â€šÃ¦Å¾Å“Ã§Â¢Â°Ã¥Ë†Â°Ã¦Â²Â¡Ã¦Å“â€°Ã¥Â¥Â³Ã§Å½â€¹Ã§Å¡â€žÃ¥Å¸ÂºÃ¥Å“Â°Ã¤Â¼Å¡Ã§â€Å¸Ã¤ÂºÂ§Ã¥Â¥Â³Ã§Å½â€¹Ã¥Â¹Â¶Ã¤Â¸â€Ã¥Â°â€ Ã¤Â¼Å¡Ã©â€â„¢Ã¨Â¯Â¯Ã§Å¡â€žÃ¦Å Å Ã¥Å¸ÂºÃ¥Å“Â°Ã§Â¼â€“Ã¥â€¦Â¥Ã©ËœÅ¸Ã¤Â¼Â
+		-- Ã¤Â¸ÂºÃ¤Âºâ€ Ã¨Â§Â£Ã¥â€ Â³Ã¤Â»Â¥Ã¤Â¸Å Ã©â€”Â®Ã©Â¢Ëœ 1Ã£â‚¬â€šÃ§â€Å¸Ã¤ÂºÂ§Ã¥Â¥Â³Ã§Å½â€¹Ã©Å“â‚¬Ã¨Â¦ÂÃ¤Â¸â‚¬Ã¤Â¸ÂªÃ¤Â¸ÂÃ¤Â¸â‚¬Ã¦ Â·Ã§Å¡â€žÃ¦â€” Ã¦â€¢Ë†Ã¥Â¿Â«Ã¦ÂÂ·Ã©â€Â® 2Ã£â‚¬â€šÃ§Â¼â€“Ã©ËœÅ¸Ã¥Â¥Â³Ã§Å½â€¹Ã§Å¡â€žÃ¥ÂÅ’Ã¦â€”Â¶Ã¯Â¼Å’Ã¥Âºâ€Ã¨Â¯Â¥Ã¦Å Å Ã¥Å¸ÂºÃ¥Å“Â°Ã¤Â¹Å¸Ã§Â¼â€“Ã©ËœÅ¸
+		-- Ã¦Â³Â¨Ã¥ÂÂµÃ¦â€Â¹Ã¤Â¸ÂºÃ¤Âºâ€ KÃ©â€Â®
 		sleep(sleepTime)
-		keyDown(0x1d) -- control 进行编队
-		sleep(sleepTime)
-		keyDown(0x0b) -- 0
-		sleep(sleepTime)
-		keyUp(0x0b)
-		sleep(sleepTime)
-		keyUp(0x1d) -- 编队结束
-	--还得清空基地编队，也容易出问题
-		sleep(sleepTime)
-		keyDown(0x1c) -- Enter
-		sleep(sleepTime)
-		keyDown(0x1d) -- control 进行编队
-		sleep(sleepTime)
-		keyDown(0x0b) --
-		sleep(sleepTime)
-		keyUp(0x0b)
-		sleep(sleepTime)
-		keyUp(0x1d) -- 编队结束
-
-
-		for i = 0, 10 do
-			keyTap(0x1e) -- a 切屏
-		    sleep(sleepTime)
---			keyTap(0x34) -- .
---			sleep(50)
-		    --框选
-			moveToThis (30200, 38000)
-			sleep(sleepTime)
-			mouseDown(1)
-			sleep(sleepTime)
-			moveToThis (35294, 20534)
-			sleep(sleepTime)
-		    mouseUp(1)
-			--框选结束,如果没有女王，会选中基地本身
-			sleep(sleepTime)
-			moveToThis (29500, 55000) --选中队伍中第一个单位
-			sleep(sleepTime)
-			mouseTap(1)
-			sleep(sleepTime)
-			keyDown(0x1d) -- control 进行编队
-			sleep(sleepTime)
-			keyDown(0x34) -- .
-			sleep(sleepTime)
-			keyUp(0x34)
-			sleep(sleepTime)
-			keyUp(0x1d) -- 编队结束
-			sleep(sleepTime)
-			moveToThis (32767, 32767) --鼠标移动到屏幕中央
-			sleep(sleepTime)
-			keyTap(0x25) -- K 注卵
-			sleep(sleepTime)
-			mouseTap(1)
-			-- 以上流程如果碰到没有女王的基地会生产女王并且将会错误的把基地编入队伍
-			-- 为了解决以上问题 1。生产女王需要一个不一样的无效快捷键 2。编队女王的同时，应该把基地也编队
-			-- 注卵改为了K键
-			sleep(sleepTime)
-			mouseTap(1) -- 选种基地
-			sleep(sleepTime)
-			keyDown(0x1d) -- control 进行编队
-			sleep(sleepTime)
-			keyDown(0x1c) -- Enter
-			sleep(sleepTime)
-			keyUp(0x1c)
-			sleep(sleepTime)
-			keyUp(0x1d) -- 编队结束
-
-		end
-		--恢复视角
-		keyDown(0x38) -- alt
-		sleep(sleepTime)
-		keyDown(0x1c) -- Enter
-		sleep(sleepTime)
-		keyUp(0x1c)
-		sleep(sleepTime)
-		keyUp(0x38) -- 编屏
-		--恢复编队
-		sleep(sleepTime)
-		keyTap(0x0c) -- -
-		sleep(sleepTime)
-		keyTap(0x0c) -- -
+		--			mouseTap(1) -- Ã©â‚¬â€°Ã§Â§ÂÃ¥Å¸ÂºÃ¥Å“Â°
+		--			sleep(sleepTime)
+		--			keyDown(0x1d) -- control Ã¨Â¿â€ºÃ¨Â¡Å’Ã§Â¼â€“Ã©ËœÅ¸
+		--			sleep(sleepTime)
+		--			keyDown(0x1c) -- Enter
+		--			sleep(sleepTime)
+		--			keyUp(0x1c)
+		--			sleep(sleepTime)
+		--			keyUp(0x1d) -- Ã§Â¼â€“Ã©ËœÅ¸Ã§Â»â€œÃ¦ÂÅ¸
 
 	end
- end)
+	--Ã¦ÂÂ¢Ã¥Â¤ÂÃ¨Â§â€ Ã¨Â§â€™
+	keyDown(0x38) -- alt
+	sleep(sleepTime)
+	keyDown(0x1c) -- Enter
+	sleep(sleepTime)
+	keyUp(0x1c)
+	sleep(sleepTime)
+	keyUp(0x38) -- Ã§Â¼â€“Ã¥Â±Â
+	--Ã¦ÂÂ¢Ã¥Â¤ÂÃ§Â¼â€“Ã©ËœÅ¸
+	sleep(sleepTime)
+	keyTap(0x0c) -- -
+	sleep(sleepTime)
+	keyTap(0x0c) -- -
+end
 
--- console.log(lmf)
+-- local G1 = false
+--
+-- lmf.on("mousedown", function (e)
+-- 	-- console.log(e)
+-- 	if e.g == 7 and e.capslock then
+-- 		G1 = true
+-- 		setM(1)
+-- 	end
+-- end)
+--
+-- lmf.on("mkeydown", function (e)
+-- 	if G1 and e.capslock then
+-- 		setM(1)
+-- 		mouseTap(1)
+-- 	end
+-- end)
+--
+--
 
+local a = 0
 
-
-
-
-
-
-
-
+lmf.loop(function ()
+	if IsKeyLockOn("capslock") then
+		injectLarvae()
+	else
+		console.log("capslock disabled, going to ignore")
+	end
+	a = a + 1
+	return a < iteration
+end, 30000)
 
 
 
