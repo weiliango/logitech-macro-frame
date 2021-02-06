@@ -495,7 +495,7 @@ EnablePrimaryMouseButtonEvents(true)
 -- Execute when the script is loaded
 
 local sleepTime = 10
-local iteration = 200
+local iteration = 1200
 lmf._for_protect_time = 60 * 60 * 24 * 1000 -- 24 hours
 
 function injectLarvae()
@@ -546,9 +546,10 @@ function injectLarvae()
 	if IsKeyLockOn("scrolllock") then
 		j = 4
 	else
-		j = 10
+		j = 8
 	end
 
+	SetMouseDPITable({0, 800}, 1)
 	for i = 0, j do
 		keyTap(0x1e) -- a Ã¥Ë†â€¡Ã¥Â±Â
 		sleep(sleepTime)
@@ -596,6 +597,7 @@ function injectLarvae()
 		--			keyUp(0x1d) -- Ã§Â¼â€“Ã©ËœÅ¸Ã§Â»â€œÃ¦ÂÅ¸
 
 	end
+	SetMouseDPITable({0, 800}, 2)
 	--Ã¦ÂÂ¢Ã¥Â¤ÂÃ¨Â§â€ Ã¨Â§â€™
 	keyDown(0x38) -- alt
 	sleep(sleepTime)
