@@ -492,10 +492,23 @@ end
 --||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||--
 
 EnablePrimaryMouseButtonEvents(true)
-
 -- Execute when the script is loaded
 lmf.on("load", function ()
-	console.log("hello world")
+	console.log("let's rocking!")
+--	lmf.loop(function ()
+--		sleep(30000)
+--		keyTap(0x34) -- .
+--		for i = 0, 10 do
+--			keyTap(0x1e) -- a
+--			moveToThis (32767, 32767)
+--			keyTap(0x18) -- o
+--			keyTap(0x16) -- u
+--		end
+--		keyTap(0x1a) -- [
+--		keyTap(0x1a) -- [
+--		a = a + 1
+--		return a < 5
+--	end, 10000)
 end)
 
 lmf.on('unload', function ()
@@ -503,31 +516,141 @@ lmf.on('unload', function ()
 end)
 
 -- 按住左键连点效果实现范例 (开启大写生效)
--- local G1 = false
+ local G1 = false
+
+ lmf.on("mousedown", function (e)
+ 	-- console.log(e)
+ 	if e.g == 7 and e.capslock then
+ 		G1 = true
+ 		setM(1)
+ 	end
+ end)
 --
--- lmf.on("mousedown", function (e)
--- 	-- console.log(e)
--- 	if e.g == 1 and e.capslock then
--- 		G1 = true
--- 		setM(1)
--- 	end
--- end)
+ lmf.on("mkeydown", function (e)
+ 	if G1 and e.capslock then
+ 		setM(1)
+ 		mouseTap(1)
+ 	end
+ end)
 --
--- lmf.on("mkeydown", function (e)
--- 	if G1 and e.capslock then
--- 		setM(1)
--- 		mouseTap(1)
--- 	end
--- end)
---
--- lmf.on("mouseup", function (e)
--- 	if e.g == 1 then
--- 		G1 = false
--- 	end
--- end)
+
+ local sleepTime = 10
+ lmf.on("mouseup", function (e)
+ 	if e.g == 7 then
+--		moveToThis (29500, 55000) -- point of first unit
+-- 		moveToThis (30200, 38000) -- point of left bottom corner of base
+-- 		moveToThis (35294, 20534) -- point of left bottom corner of base
+
+	--保存编队
+		keyDown(0x1d) -- control 进行编队
+		sleep(sleepTime)
+		keyDown(0x0c) -- -
+		sleep(sleepTime)
+		keyUp(0x0c)
+		sleep(sleepTime)
+		keyUp(0x1d) -- 编队结束
+	--保存视角
+		keyDown(0x2a) -- shift 进行编屏
+		sleep(sleepTime)
+		keyDown(0x1c) -- Enter
+		sleep(sleepTime)
+		keyUp(0x1c)
+		sleep(sleepTime)
+		keyUp(0x2a) -- 编屏结束
+	--corner case：没有选中任何单位，比如在看风景，这种情况下
+	--编队在移动
+	--所以应该先恢复视角，然后再双击编队，如果没有编队的化回回到原位
+	--编队移动了也能恢复最后的位置
+
+	--每次执行的时候应该清空女王编队，因为之前可能会选中农民和虫卵
+		sleep(sleepTime)
+		keyDown(0x34) -- .
+		sleep(sleepTime)
+		keyDown(0x1d) -- control 进行编队
+		sleep(sleepTime)
+		keyDown(0x0b) -- 0
+		sleep(sleepTime)
+		keyUp(0x0b)
+		sleep(sleepTime)
+		keyUp(0x1d) -- 编队结束
+	--还得清空基地编队，也容易出问题
+		sleep(sleepTime)
+		keyDown(0x1c) -- Enter
+		sleep(sleepTime)
+		keyDown(0x1d) -- control 进行编队
+		sleep(sleepTime)
+		keyDown(0x0b) --
+		sleep(sleepTime)
+		keyUp(0x0b)
+		sleep(sleepTime)
+		keyUp(0x1d) -- 编队结束
+
+
+		for i = 0, 10 do
+			keyTap(0x1e) -- a 切屏
+		    sleep(sleepTime)
+--			keyTap(0x34) -- .
+--			sleep(50)
+		    --框选
+			moveToThis (30200, 38000)
+			sleep(sleepTime)
+			mouseDown(1)
+			sleep(sleepTime)
+			moveToThis (35294, 20534)
+			sleep(sleepTime)
+		    mouseUp(1)
+			--框选结束,如果没有女王，会选中基地本身
+			sleep(sleepTime)
+			moveToThis (29500, 55000) --选中队伍中第一个单位
+			sleep(sleepTime)
+			mouseTap(1)
+			sleep(sleepTime)
+			keyDown(0x1d) -- control 进行编队
+			sleep(sleepTime)
+			keyDown(0x34) -- .
+			sleep(sleepTime)
+			keyUp(0x34)
+			sleep(sleepTime)
+			keyUp(0x1d) -- 编队结束
+			sleep(sleepTime)
+			moveToThis (32767, 32767) --鼠标移动到屏幕中央
+			sleep(sleepTime)
+			keyTap(0x25) -- K 注卵
+			sleep(sleepTime)
+			mouseTap(1)
+			-- 以上流程如果碰到没有女王的基地会生产女王并且将会错误的把基地编入队伍
+			-- 为了解决以上问题 1。生产女王需要一个不一样的无效快捷键 2。编队女王的同时，应该把基地也编队
+			-- 注卵改为了K键
+			sleep(sleepTime)
+			mouseTap(1) -- 选种基地
+			sleep(sleepTime)
+			keyDown(0x1d) -- control 进行编队
+			sleep(sleepTime)
+			keyDown(0x1c) -- Enter
+			sleep(sleepTime)
+			keyUp(0x1c)
+			sleep(sleepTime)
+			keyUp(0x1d) -- 编队结束
+
+		end
+		--恢复视角
+		keyDown(0x38) -- alt
+		sleep(sleepTime)
+		keyDown(0x1c) -- Enter
+		sleep(sleepTime)
+		keyUp(0x1c)
+		sleep(sleepTime)
+		keyUp(0x38) -- 编屏
+		--恢复编队
+		sleep(sleepTime)
+		keyTap(0x0c) -- -
+		sleep(sleepTime)
+		keyTap(0x0c) -- -
+
+	end
+ end)
 
 -- console.log(lmf)
-
 
 
 
