@@ -520,16 +520,16 @@ function injectLarvae()
 	--Ã§Â¼â€“Ã©ËœÅ¸Ã§Â§Â»Ã¥Å Â¨Ã¤Âºâ€ Ã¤Â¹Å¸Ã¨Æ’Â½Ã¦ÂÂ¢Ã¥Â¤ÂÃ¦Å“â‚¬Ã¥ÂÅ½Ã§Å¡â€žÃ¤Â½ÂÃ§Â½Â®
 
 	--	--Ã¦Â¯ÂÃ¦Â¬Â¡Ã¦â€°Â§Ã¨Â¡Å’Ã§Å¡â€žÃ¦â€”Â¶Ã¥â‚¬â„¢Ã¥Âºâ€Ã¨Â¯Â¥Ã¦Â¸â€¦Ã§Â©ÂºÃ¥Â¥Â³Ã§Å½â€¹Ã§Â¼â€“Ã©ËœÅ¸Ã¯Â¼Å’Ã¥â€º Ã¤Â¸ÂºÃ¤Â¹â€¹Ã¥â€°ÂÃ¥ÂÂ¯Ã¨Æ’Â½Ã¤Â¼Å¡Ã©â‚¬â€°Ã¤Â¸Â­Ã¥â€ Å“Ã¦Â°â€˜Ã¥â€™Å’Ã¨â„¢Â«Ã¥ÂÂµ
-	--		sleep(sleepTime)
-	--		keyDown(0x34) -- .
-	--		sleep(sleepTime)
-	--		keyDown(0x1d) -- control Ã¨Â¿â€ºÃ¨Â¡Å’Ã§Â¼â€“Ã©ËœÅ¸
-	--		sleep(sleepTime)
-	--		keyDown(0x0b) -- 0
-	--		sleep(sleepTime)
-	--		keyUp(0x0b)
-	--		sleep(sleepTime)
-	--		keyUp(0x1d) -- Ã§Â¼â€“Ã©ËœÅ¸Ã§Â»â€œÃ¦ÂÅ¸
+	sleep(sleepTime)
+	keyDown(0x34) -- .
+	sleep(sleepTime)
+	keyDown(0x1d) -- control Ã¨Â¿â€ºÃ¨Â¡Å’Ã§Â¼â€“Ã©ËœÅ¸
+	sleep(sleepTime)
+	keyDown(0x0b) -- 0
+	sleep(sleepTime)
+	keyUp(0x0b)
+	sleep(sleepTime)
+	keyUp(0x1d) -- Ã§Â¼â€“Ã©ËœÅ¸Ã§Â»â€œÃ¦ÂÅ¸
 	--	--Ã¨Â¿ËœÃ¥Â¾â€”Ã¦Â¸â€¦Ã§Â©ÂºÃ¥Å¸ÂºÃ¥Å“Â°Ã§Â¼â€“Ã©ËœÅ¸Ã¯Â¼Å’Ã¤Â¹Å¸Ã¥Â®Â¹Ã¦Ëœâ€œÃ¥â€¡ÂºÃ©â€”Â®Ã©Â¢Ëœ
 	--		sleep(sleepTime)
 	--		keyDown(0x1c) -- Enter
@@ -564,18 +564,18 @@ function injectLarvae()
 		sleep(sleepTime)
 		mouseUp(1)
 		--Ã¦Â¡â€ Ã©â‚¬â€°Ã§Â»â€œÃ¦ÂÅ¸,Ã¥Â¦â€šÃ¦Å¾Å“Ã¦Â²Â¡Ã¦Å“â€°Ã¥Â¥Â³Ã§Å½â€¹Ã¯Â¼Å’Ã¤Â¼Å¡Ã©â‚¬â€°Ã¤Â¸Â­Ã¥Å¸ÂºÃ¥Å“Â°Ã¦Å“Â¬Ã¨ÂºÂ«
-		--			sleep(sleepTime)
-		--			moveToThis (29500, 55000) --Ã©â‚¬â€°Ã¤Â¸Â­Ã©ËœÅ¸Ã¤Â¼ÂÃ¤Â¸Â­Ã§Â¬Â¬Ã¤Â¸â‚¬Ã¤Â¸ÂªÃ¥Ââ€¢Ã¤Â½Â
-		--			sleep(sleepTime)
-		--			mouseTap(1)
-		--			sleep(sleepTime)
-		--			keyDown(0x1d) -- control Ã¨Â¿â€ºÃ¨Â¡Å’Ã§Â¼â€“Ã©ËœÅ¸
-		--			sleep(sleepTime)
-		--			keyDown(0x34) -- .
-		--			sleep(sleepTime)
-		--			keyUp(0x34)
-		--			sleep(sleepTime)
-		--			keyUp(0x1d) -- Ã§Â¼â€“Ã©ËœÅ¸Ã§Â»â€œÃ¦ÂÅ¸
+		sleep(sleepTime)
+		moveToThis (29500, 55000) --Ã©â‚¬â€°Ã¤Â¸Â­Ã©ËœÅ¸Ã¤Â¼ÂÃ¤Â¸Â­Ã§Â¬Â¬Ã¤Â¸â‚¬Ã¤Â¸ÂªÃ¥Ââ€¢Ã¤Â½Â
+		sleep(sleepTime)
+		mouseTap(1)
+		sleep(sleepTime)
+		keyDown(0x1d) -- control Ã¨Â¿â€ºÃ¨Â¡Å’Ã§Â¼â€“Ã©ËœÅ¸
+		sleep(sleepTime)
+		keyDown(0x34) -- .
+		sleep(sleepTime)
+		keyUp(0x34)
+		sleep(sleepTime)
+		keyUp(0x1d) -- Ã§Â¼â€“Ã©ËœÅ¸Ã§Â»â€œÃ¦ÂÅ¸
 		sleep(sleepTime)
 		moveToThis (32767, 32767) --Ã©Â¼ Ã¦ â€¡Ã§Â§Â»Ã¥Å Â¨Ã¥Ë†Â°Ã¥Â±ÂÃ¥Â¹â€¢Ã¤Â¸Â­Ã¥Â¤Â®
 		sleep(sleepTime)
@@ -635,14 +635,20 @@ end
 local a = 0
 
 lmf.loop(function ()
-	if IsKeyLockOn("capslock") then
+
+	if isPressed("lctrl") then
+		keyTap(0x3a) -- disable auto inject
+		injectLarvae()
+	end
+
+	if IsKeyLockOn("capslock") and a % 30 == 0 then
 		injectLarvae()
 	else
-		console.log("capslock disabled, going to ignore")
+
 	end
 	a = a + 1
 	return a < iteration
-end, 30000)
+end, 1000)
 
 
 
