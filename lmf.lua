@@ -633,22 +633,32 @@ end
 --
 
 local a = 0
+local isCapslock = false
 
 lmf.loop(function ()
 
-	if isPressed("lctrl") then
-		keyTap(0x3a) -- disable auto inject
-		injectLarvae()
-	end
+    if isPressed("lctrl") then
+        if (isCapslock) then
+            isCapslock = false
+            keyTap(0x3a) -- disable auto inject
+        end
+        injectLarvae()
+    end
 
-	if IsKeyLockOn("capslock") and a % 30 == 0 then
-		injectLarvae()
-	else
+    if isPressed("rctrl") and isPressed(3) then
+        keyTap(0x35) --/
+        keyTap(0x26) --L
+    end
 
-	end
-	a = a + 1
-	return a < iteration
-end, 1000)
+    if IsKeyLockOn("capslock") and a % 60 == 0 then
+        isCapslock = true
+        injectLarvae()
+    else
+
+    end
+    a = a + 1
+    return a < iteration
+end, 500)
 
 
 
